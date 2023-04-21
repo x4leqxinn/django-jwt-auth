@@ -1,8 +1,7 @@
-django
-djangorestframework
-djangorestframework-simplejwt
-drf-spectacular
-drf-extensions
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.2.2
+drf-extensions==0.7.1
+drf-spectacular==0.26.2
 mysqlclient==2.1.1
 python-decouple==3.8
 django-redis==5.2.0
