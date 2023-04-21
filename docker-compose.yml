@@ -4,10 +4,14 @@ services:
   web:
     build: .
     command: python core/manage.py runserver 0.0.0.0:8000
-    container_name: auth-jwt
+    container_name: jwt-auth
     volumes:
       - .:/app
     ports:
       - "8000:8000"
+    depends_on:
+      - redis
 
-
+  redis:
+    image: redis
+    container_name: redis
