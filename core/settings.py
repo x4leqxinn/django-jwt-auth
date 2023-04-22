@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'django_redis',
 ] + [
-    'authentication'
+    'base',
+    'authentication',
+    'task', # Example app
 ]
 
 MIDDLEWARE = [
