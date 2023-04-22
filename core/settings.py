@@ -227,13 +227,13 @@ JAZZMIN_SETTINGS = {
     "site_header": "x4leQxinN",
 
     # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_brand": "x4leQxinN",
+    "site_brand": "青木ヶ原",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
     "site_logo": "../static/logo/main.jpg",
 
     # Welcome text on the login screen
-    "welcome_sign": "¡Bienvenido!",
+    "welcome_sign": "死ぬことは生きることです",
 
     "icons": {
         "auth": "fas fa-users-cog",
