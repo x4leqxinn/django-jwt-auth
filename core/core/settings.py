@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_spectacular',
     'django_redis',
+    #'django_db',
 ]
 
 MIDDLEWARE = [
@@ -176,3 +177,13 @@ CACHES = {
         }
     }
 }
+
+
+# Celery settings
+CELERY_BROKER_URL = 'redis://redis:6379/0'
+CELERY_CACHE_BACKEND = 'django-cache'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'UTC'
+CELERY_RESULT_BACKEND = 'redis://redis:6379/0' # Redis container IP ADDRESS
