@@ -6,6 +6,8 @@ from rest_framework import viewsets
 from api.serializers import TaskSerializer
 from api.models import Task
 
+from .tasks import add
+
 @extend_schema_view(
     list=extend_schema(description='Permite obtener una lista de tareas.'),
     retrieve=extend_schema(description='Permite obtener una tarea.'),
@@ -17,3 +19,13 @@ from api.models import Task
 class TaskViewSet(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
     queryset = Task.objects.all()
+
+    def create(self, request, *args, **kwargs):
+        # Llamada al método create original
+        response = super().create(request, *args, **kwargs)
+
+        # Agrega código adicional aquí para extender la funcionalidad del método post
+        resultado = add.delay(10, 10)
+        print(resultado)
+        # Retorna la respuesta original del método create
+        return response
