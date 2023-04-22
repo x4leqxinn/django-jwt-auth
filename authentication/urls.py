@@ -4,7 +4,7 @@ from rest_framework import routers
 from rest_framework_extensions.routers import ExtendedSimpleRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
-from api.views import TaskViewSet
+from .views import TaskViewSet
 
 router: ExtendedSimpleRouter = ExtendedSimpleRouter()
 

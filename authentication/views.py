@@ -3,8 +3,8 @@
 from drf_spectacular.utils import extend_schema, extend_schema_view
 from rest_framework import viewsets
 
-from api.serializers import TaskSerializer
-from api.models import Task
+from .serializers import TaskSerializer
+from .models import Task
 
 from .tasks import add
 
