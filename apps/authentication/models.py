@@ -49,3 +49,26 @@ class User(AbstractBaseUser, PermissionsMixin):
     def get_full_name(self):
         full_name = '{} {}'.format(self.first_name, self.last_name)
         return full_name.strip()
+
+
+from django.utils import timezone
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    failed_attempts = models.PositiveIntegerField(default=0)
+    locked_until = models.DateTimeField(default=None, null=True, blank=True)
+
+    def increment_failed_attempts(self):
+        self.failed_attempts += 1
+        self.save()
+
+    def reset_failed_attempts(self):
+        self.failed_attempts = 0
+        self.save()
+
+    def lock_account(self, minutes):
+        self.locked_until = timezone.now() + timezone.timedelta(minutes=minutes)
+        self.save()
+
+    def is_account_locked(self):
+        return self.locked_until is not None and self.locked_until > timezone.now()
