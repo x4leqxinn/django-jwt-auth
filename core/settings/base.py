@@ -39,9 +39,7 @@ THIRD_APPS = [
 ]
 
 LOCAL_APPS = [
-    'apps.base',
-    'apps.authentication',
-    'apps.task', # Example app
+    'api.v1',
 ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
