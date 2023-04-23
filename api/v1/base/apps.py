@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class V1Config(AppConfig):
+class BaseConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'api.v1'
+    name = 'api.v1.base'
