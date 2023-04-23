@@ -38,11 +38,19 @@ THIRD_APPS = [
     'django_redis',
 ]
 
-LOCAL_APPS = [
+## API V1 
+API_V1 = [
     'api.v1',
+    'api.v1.base',
+    'api.v1.authentication',
+    'api.v1.task',
 ]
 
-INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
+API_VERSIONS = API_V1
+
+
+INSTALLED_APPS = BASE_APPS + API_VERSIONS + THIRD_APPS
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
