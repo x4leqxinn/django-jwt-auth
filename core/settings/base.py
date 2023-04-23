@@ -21,7 +21,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+BASE_APPS = [
     'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -29,16 +29,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-] + [
+]
+
+THIRD_APPS = [
     'rest_framework.authtoken',
     'rest_framework',
     'drf_spectacular',
     'django_redis',
-] + [
+]
+
+LOCAL_APPS = [
     'base',
     'authentication',
     'task', # Example app
 ]
+
+INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
