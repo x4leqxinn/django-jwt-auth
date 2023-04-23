@@ -7,8 +7,6 @@ from .views import TaskViewSet
 router: ExtendedSimpleRouter = ExtendedSimpleRouter()
 
 router = routers.DefaultRouter()
-router.register(r'task',TaskViewSet)
+router.register(r'task',TaskViewSet,basename='task')
 
-urlpatterns = [
-    path('',include(router.urls)),
-]
+urlpatterns = router.urls
