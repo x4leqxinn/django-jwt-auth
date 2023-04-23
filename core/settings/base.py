@@ -39,9 +39,9 @@ THIRD_APPS = [
 ]
 
 LOCAL_APPS = [
-    'base',
-    'authentication',
-    'task', # Example app
+    'apps.base',
+    'apps.authentication',
+    'apps.task', # Example app
 ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
