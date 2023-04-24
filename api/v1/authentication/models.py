@@ -52,6 +52,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
 from django.utils import timezone
+from utils.mailer import send_account_locked_email
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -65,10 +66,12 @@ class UserProfile(models.Model):
     def reset_failed_attempts(self):
         self.failed_attempts = 0
         self.save()
-
+    
+    @send_account_locked_email
     def lock_account(self, minutes):
         self.locked_until = timezone.now() + timezone.timedelta(minutes=minutes)
         self.save()
+
 
     def is_account_locked(self):
         return self.locked_until is not None and self.locked_until > timezone.now()
