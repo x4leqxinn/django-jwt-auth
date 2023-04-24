@@ -26,14 +26,15 @@ class CustomTokenObtainSerializer(TokenObtainSerializer):
 
 
     def verify_attempts(self,attrs):
-        current_user = User.objects.filter(email=attrs.get(self.username_field)).first()
-        if not current_user: return
-
+        self.user = User.objects.filter(email=attrs.get(self.username_field)).first()
+        if not self.user: return
         # Si las credenciales son incorrectas, incrementamos el contador de intentos fallidos
-        self.profile,_ = UserProfile.objects.get_or_create(user=current_user)
+        self.profile,_ = UserProfile.objects.get_or_create(user=self.user)
+        # Verify account
+        self.verify_account_blocking()
         self.profile.increment_failed_attempts()
-        
-        if self.profile.failed_attempts >= 3: self.lock_account()
+
+        if self.profile.failed_attempts >= 3  : self.lock_account()
 
     def verify_account_blocking(self):
         self.profile,_ = UserProfile.objects.get_or_create(user=self.user)
