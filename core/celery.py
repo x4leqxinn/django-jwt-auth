@@ -3,7 +3,7 @@ import os
 from celery import Celery
 
 # Establecer la configuración de Django para Celery
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings.development')
 
 # Crea una instancia de la aplicación Celery
 app = Celery('core')
