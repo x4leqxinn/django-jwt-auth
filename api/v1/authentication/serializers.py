@@ -47,7 +47,6 @@ class CustomTokenObtainSerializer(TokenObtainSerializer):
                 'account_locked'
             )
         
-        self.profile.reset_failed_attempts() 
 
     def validate(self, attrs: Dict[str, Any]) -> Dict[Any, Any]:
         authenticate_kwargs = {
@@ -70,8 +69,8 @@ class CustomTokenObtainSerializer(TokenObtainSerializer):
                 "no_active_account",
             )
         # Successful login
-
         self.verify_account_blocking()
+        self.profile.reset_failed_attempts() 
 
         return {}
 
