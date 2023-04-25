@@ -43,7 +43,6 @@ API_V1 = [
     'api.v1',
     'api.v1.base',
     'api.v1.authentication',
-    'api.v1.task',
 ]
 
 API_VERSIONS = API_V1
