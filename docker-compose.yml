@@ -1,17 +1,36 @@
-version: '3'
+version: '3.9'
 
 services:
-  web:
+  auth_backend:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
-    container_name: jwt-auth
+    container_name: auth-backend
+    image: auth-backend:latest
     volumes:
       - .:/app
     ports:
       - "8000:8000"
     depends_on:
       - redis
-
+      - mysql
+    networks:
+      - mynetwork
   redis:
     image: redis
     container_name: redis
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./scripts:/docker-entrypoint-initdb.d
+    networks:
+      - mynetwork
+volumes:
+  db_data:
+networks:
+  mynetwork:
+    driver: bridge
+
