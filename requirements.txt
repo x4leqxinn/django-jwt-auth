@@ -4,7 +4,4 @@ drf-extensions==0.7.1
 drf-spectacular==0.26.2
 mysqlclient==2.1.1
 python-decouple==3.8
-django-redis==5.2.0
-celery==5.2.7
-redis==4.5.4
 django-jazzmin==2.6.0

@@ -11,13 +11,9 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - redis
       - mysql
     networks:
       - mynetwork
-  redis:
-    image: redis
-    container_name: redis
   mysql:
     image: mysql:latest
     restart: always

@@ -35,7 +35,6 @@ THIRD_APPS = [
     'rest_framework.authtoken',
     'rest_framework',
     'drf_spectacular',
-    'django_redis',
 ]
 
 ## API V1 
@@ -134,13 +133,13 @@ REST_FRAMEWORK = {
 
 # django spectacular
 SPECTACULAR_SETTINGS = {
-    'TITLE' : 'API 死ぬことは生きることです',
-    'DESCRIPTION' : '愛しています',
+    'TITLE' : 'API Autenticaciòn',
+    'DESCRIPTION' : 'Autenticación de usuarios',
     'VERSION' : '1.0.0',
     'CONTACT': {
-        'name' : 'Jorge Quintui',
-        'email' : 'jorge@gmail.com',
-        'url' : 'uwu.cl',
+        'name' : 'Tomas Campos',
+        'email' : 'tomasito@gmail.com',
+        'url' : 'tomasito.cl',
     },
     'SWAGGER_UI_SETTINGS': {
         'persistAuthorization': True
@@ -173,28 +172,6 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=7),
 }
 
-
-# Gestor de caché
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://redis:6379/0',
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
-        }
-    }
-}
-
-
-# Celery settings
-CELERY_BROKER_URL = 'redis://redis:6379/0'
-CELERY_CACHE_BACKEND = 'django-cache'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'UTC'
-CELERY_RESULT_BACKEND = 'redis://redis:6379/0' # Redis container IP ADDRESS
-
 # Change user model
 AUTH_USER_MODEL = 'authentication.User'
 AUTHENTICATION_BACKENDS = [
@@ -205,19 +182,19 @@ AUTHENTICATION_BACKENDS = [
 
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "Authentication x4leqxinn",
+    "site_title": "No + accidentes",
 
     # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_header": "x4leQxinN",
+    "site_header": "No + accidentes",
 
     # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_brand": "青木ヶ原",
+    "site_brand": "Administración",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": "../static/logo/main.jpg",
+    "site_logo": "../static/logo/main.png",
 
     # Welcome text on the login screen
-    "welcome_sign": "死ぬことは生きることです",
+    "welcome_sign": "Bienvenido",
 
     "icons": {
         "auth": "fas fa-users-cog",
