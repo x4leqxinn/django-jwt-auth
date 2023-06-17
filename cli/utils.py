@@ -6,8 +6,8 @@ USER_ROLE : list[UserRole] = [
     UserRole(description='Cliente'),
 ]
 
-def get_user(username: str, role : UserRole, password:str, flag: bool) -> User:
-    user = User(username = username, user_role = role, is_staff = flag, is_superuser = flag)
+def get_user(username: str, role : UserRole, password:str, flag: bool, first_name:str = None) -> User:
+    user = User(username = username,first_name=first_name, user_role = role, is_staff = flag, is_superuser = flag)
     user.set_password(password)
     return user
 
@@ -29,21 +29,21 @@ USERS : list[User] = [
     get_user('ariel',USER_ROLE[1],'arielox',False),
     get_user('diaz',USER_ROLE[1],'buenos',False),
     get_user('gerardo',USER_ROLE[1],'gomes',False),
-    get_user('matias',USER_ROLE[2],'campos',False),
-    get_user('nico',USER_ROLE[2],'nico',False),
-    get_user('Manuel',USER_ROLE[2],'manu',False),
-    get_user('mono',USER_ROLE[2],'mono',False),
-    get_user('totin',USER_ROLE[2],'totin',False),
-    get_user('cliente',USER_ROLE[2],'cliente',False),
-    get_user('javier',USER_ROLE[2],'javier',False),
-    get_user('diego',USER_ROLE[2],'diego',False),
-    get_user('gaspi',USER_ROLE[2],'gaspi',False),
-    get_user('tomasito',USER_ROLE[2],'tom',False),
-    get_user('tom',USER_ROLE[2],'tom',False),
-    get_user('jojo',USER_ROLE[2],'jojo',False),
-    get_user('Alexis',USER_ROLE[2],'123',False),
-    get_user('ada',USER_ROLE[2],'celis',False),
-    get_user('kiki',USER_ROLE[2],'kiki',False),
+    get_user('matias',USER_ROLE[2],'campos',False,'Hasbro'),
+    get_user('nico',USER_ROLE[2],'nico',False,'modoDiablo'),
+    get_user('Manuel',USER_ROLE[2],'manu',False,'Lego'),
+    get_user('mono',USER_ROLE[2],'mono',False,'Walmart'),
+    get_user('totin',USER_ROLE[2],'totin',False,'Duoc'),
+    get_user('cliente',USER_ROLE[2],'cliente',False,'DC'),
+    get_user('javier',USER_ROLE[2],'javier',False,'Vans'),
+    get_user('diego',USER_ROLE[2],'diego',False,'Nike'),
+    get_user('gaspi',USER_ROLE[2],'gaspi',False,'Mineduc'),
+    get_user('tomasito',USER_ROLE[2],'tom',False,'Baltica'),
+    get_user('tom',USER_ROLE[2],'tom',False,'Kia'),
+    get_user('jojo',USER_ROLE[2],'jojo',False,'Oneseg'),
+    get_user('Alexis',USER_ROLE[2],'123',False,'iPhone'),
+    get_user('ada',USER_ROLE[2],'celis',False,'MAC'),
+    get_user('kiki',USER_ROLE[2],'kiki',False,'Tommy'),
 ]
 
 ENTITY = {
