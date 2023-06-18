@@ -203,17 +203,17 @@ AUTHENTICATION_BACKENDS = [
 
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
-    "site_title": "No + accidentes",
+    "site_title": "Ferreteria",
 
     # Title on the login screen (19 chars max) (defaults to current_admin_site.site_header if absent or None)
-    "site_header": "No + accidentes",
+    "site_header": "Ferreteria",
 
     # Title on the brand (19 chars max) (defaults to current_admin_site.site_header if absent or None)
     "site_brand": "Administración",
 
     # Logo to use for your site, must be present in static files, used for brand on top left
-    "site_logo": "../static/logo/main.png",
-
+    "site_logo": "../static/logo/logov2.png",
+    "site_icon": "../static/logo/logov2.png",
     # Welcome text on the login screen
     "welcome_sign": "Bienvenido",
 

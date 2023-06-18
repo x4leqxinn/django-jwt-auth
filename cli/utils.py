@@ -6,8 +6,8 @@ USER_ROLE : list[UserRole] = [
     UserRole(description='cliente'),
 ]
 
-def get_user(username: str, role : UserRole, password:str, flag: bool, first_name:str = None) -> User:
-    user = User(username = username,first_name=first_name, user_role = role, is_staff = flag, is_superuser = flag)
+def get_user(username: str, role : UserRole, password:str, flag: bool) -> User:
+    user = User(username = username, user_role = role, is_staff = flag, is_superuser = flag)
     user.set_password(password)
     return user
 
@@ -15,7 +15,6 @@ def get_user(username: str, role : UserRole, password:str, flag: bool, first_nam
 USERS : list[User] = [
     get_user('admin',USER_ROLE[0],'admin',True),
     get_user('nico',USER_ROLE[1],'nico123',False),
-
 ]
 
 ENTITY = {
