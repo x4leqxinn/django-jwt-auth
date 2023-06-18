@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from rest_framework_simplejwt.settings import api_settings
 from rest_framework_simplejwt.serializers import TokenObtainSerializer, TokenObtainPairSerializer
 from rest_framework import exceptions
-from .models import UserProfile, User
+from .models import User
 from django.utils import timezone
 
 class CustomTokenObtainSerializer(TokenObtainSerializer):

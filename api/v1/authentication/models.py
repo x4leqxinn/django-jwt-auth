@@ -65,32 +65,3 @@ class User(AbstractBaseUser, PermissionsMixin):
         db_table = 'user'
         verbose_name_plural = 'Usuarios'
 
-from django.utils import timezone
-
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    failed_attempts = models.PositiveIntegerField(default=0)
-    locked_until = models.DateTimeField(default=None, null=True, blank=True)
-
-    def __str__(self):
-        return self.user.username
-
-    def increment_failed_attempts(self):
-        self.failed_attempts += 1
-        self.save()
-
-    def reset_failed_attempts(self):
-        self.failed_attempts = 0
-        self.save()
-    
-    def lock_account(self, minutes):
-        self.locked_until = timezone.now() + timezone.timedelta(minutes=minutes)
-        self.save()
-
-
-    def is_account_locked(self):
-        return self.locked_until is not None and self.locked_until > timezone.now()
-    
-    class Meta:
-        db_table = 'user_profile'
-        verbose_name_plural = 'Perfiles de usuario'
