@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure--@0$*t0e@*vzcetgk1gm0qwydpdriqh#qkrt9^72v^f29a-8*s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -36,6 +36,7 @@ THIRD_APPS = [
     'rest_framework.authtoken',
     'rest_framework',
     'drf_spectacular',
+    'corsheaders',
 ]
 
 ## API V1 
@@ -52,6 +53,7 @@ INSTALLED_APPS = BASE_APPS + API_VERSIONS + THIRD_APPS
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -111,6 +113,24 @@ TIME_ZONE = 'America/Santiago'
 USE_I18N = True
 
 USE_TZ = False
+
+CORS_ALLOW_HEADERS = [
+    '*'
+]
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT"
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
