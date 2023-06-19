@@ -155,13 +155,13 @@ REST_FRAMEWORK = {
 
 # django spectacular
 SPECTACULAR_SETTINGS = {
-    'TITLE' : 'API Autenticaciòn',
-    'DESCRIPTION' : 'Autenticación de usuarios',
+    'TITLE' : 'API Ferreteria',
+    'DESCRIPTION' : 'Api creada por Nicolás para la ferreteria',
     'VERSION' : '1.0.0',
     'CONTACT': {
-        'name' : 'Tomas Campos',
-        'email' : 'tomasito@gmail.com',
-        'url' : 'tomasito.cl',
+        'name' : 'Nicolás',
+        'email' : 'nicolas@gmail.com',
+        'url' : 'nico.cl',
     },
     'SWAGGER_UI_SETTINGS': {
         'persistAuthorization': True
