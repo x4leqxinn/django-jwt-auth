@@ -12,6 +12,7 @@ class ProductCategory(BaseModel):
     class Meta:
         verbose_name = 'Categoría de producto'
         verbose_name_plural = 'Categorías de productos'
+        db_table = 'product_category'
 
 class Product(BaseModel):
     name = models.CharField(max_length=100,null=False,blank=False,verbose_name='Nombre del producto')
@@ -27,3 +28,4 @@ class Product(BaseModel):
     class Meta:
         verbose_name = 'Producto'
         verbose_name_plural = 'Productos'
+        db_table = 'product'
